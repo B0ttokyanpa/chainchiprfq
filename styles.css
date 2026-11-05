@@ -1411,3 +1411,11 @@ figcaption {
     display: inline-flex;
   }
 }
+
+/* Update 29: the same reading rhythm for client history and employee reports. */
+.release-note { max-width:880px; margin:16px 0 0; font-size:13px; line-height:1.7; color:var(--muted); }
+.team-notes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; margin-top:28px; }
+.team-notes h3 { margin:0 0 14px; font-size:20px; line-height:1.45; color:var(--ink); }
+.team-notes p { color:#38473c; font-size:15px; line-height:1.85; margin:0 0 16px; }
+.report-shot { margin:28px 0 0; }
+@media(max-width:720px) { .team-notes { grid-template-columns:1fr; gap:18px; } }
