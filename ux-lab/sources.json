@@ -1,0 +1,114 @@
+[
+  {
+    "id": "heuristics",
+    "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "final": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "status": 200,
+    "characters": 15933
+  },
+  {
+    "id": "recognition",
+    "url": "https://www.nngroup.com/articles/recognition-and-recall/",
+    "final": "https://www.nngroup.com/articles/recognition-and-recall/",
+    "status": 200,
+    "characters": 15810
+  },
+  {
+    "id": "disclosure",
+    "url": "https://www.nngroup.com/articles/progressive-disclosure/",
+    "final": "https://www.nngroup.com/articles/progressive-disclosure/",
+    "status": 200,
+    "characters": 13811
+  },
+  {
+    "id": "response",
+    "url": "https://www.nngroup.com/articles/response-times-3-important-limits/",
+    "final": "https://www.nngroup.com/articles/response-times-3-important-limits/",
+    "status": 200,
+    "characters": 10212
+  },
+  {
+    "id": "wcag",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "final": "https://www.w3.org/TR/WCAG22/",
+    "status": 200,
+    "characters": 155061
+  },
+  {
+    "id": "gov-buttons",
+    "url": "https://design-system.service.gov.uk/components/button/",
+    "final": "https://design-system.service.gov.uk/components/button/",
+    "status": 200,
+    "characters": 14310
+  },
+  {
+    "id": "gov-errors",
+    "url": "https://design-system.service.gov.uk/components/error-summary/",
+    "final": "https://design-system.service.gov.uk/components/error-summary/",
+    "status": 200,
+    "characters": 18939
+  },
+  {
+    "id": "gov-table",
+    "url": "https://design-system.service.gov.uk/components/table/",
+    "final": "https://design-system.service.gov.uk/components/table/",
+    "status": 200,
+    "characters": 18930
+  },
+  {
+    "id": "carbon-table",
+    "url": "https://carbondesignsystem.com/components/data-table/usage/",
+    "final": "https://www.carbondesignsystem.com/building-blocks/core/components/data-table/guidelines",
+    "status": 200,
+    "characters": 17388
+  },
+  {
+    "id": "linear-views",
+    "url": "https://linear.app/docs/custom-views",
+    "final": "https://linear.app/docs/custom-views",
+    "status": 200,
+    "characters": 9114
+  },
+  {
+    "id": "github-issues",
+    "url": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests",
+    "final": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests",
+    "status": 200,
+    "characters": 13565
+  },
+  {
+    "id": "stripe-dashboard",
+    "url": "https://docs.stripe.com/dashboard/basics",
+    "final": "https://docs.stripe.com/dashboard/basics",
+    "status": 200,
+    "characters": 11632
+  },
+  {
+    "id": "gov-home",
+    "url": "https://www.gov.uk/",
+    "final": "https://www.gov.uk/",
+    "status": 200,
+    "characters": 5425
+  },
+  {
+    "id": "linear-home",
+    "url": "https://linear.app/homepage",
+    "final": "https://linear.app/homepage",
+    "status": 200,
+    "characters": 9583
+  },
+  {
+    "id": "apg-dialog",
+    "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+    "final": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+    "status": 200,
+    "characters": 7701
+  },
+  {
+    "id": "motion",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+    "final": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion",
+    "status": 200,
+    "characters": 28562
+  }
+]
