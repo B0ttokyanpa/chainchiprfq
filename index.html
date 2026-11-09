@@ -32,13 +32,13 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="styles.css?v=20261106-33" />
+    <link rel="stylesheet" href="styles.css?v=20261109-39" />
   </head>
   <body>
     <a class="skip" href="#main">К содержанию</a>
     <header class="header wrap">
       <a class="brand" href="#" aria-label="ChainChip, начало страницы"
-        ><span class="brand-mark" aria-hidden="true">↗</span>ChainChip<span
+        ><svg class="brand-mark" viewBox="0 0 36 32" aria-hidden="true"><path d="M20 5H12a9 9 0 0 0 0 18h5"/><path d="M16 9h8a9 9 0 0 1 0 18h-5" class="brand-contact"/></svg>ChainChip<span
           class="brand-dot"
           >.</span
         ></a
@@ -69,10 +69,10 @@
               Заявки клиентов,<br />предложения<br /><span>и закупки</span>
             </h1>
             <p class="lead">
-              Когда заявка от продаж проходит через продажи и закупки, нужно
-              сохранить договорённости по каждой позиции. В ChainChip рядом с
-              заявкой находятся предложения поставщиков, согласованный Анализ,
-              проданные количества и заказы.
+              От входящего запроса до заказа поставщику: предложения,
+              согласованный Анализ, частичные продажи и закупочные партии
+              связаны с одной заявкой. Можно вернуться к позиции и увидеть,
+              на каких условиях принимали решение.
             </p>
             <div class="hero-actions">
               <a
@@ -103,11 +103,11 @@
               </div>
               <div>
                 <dt>Входящие данные</dt>
-                <dd>RFQ и ответы поставщиков в Excel</dd>
+                <dd>Excel или конструктор таблицы</dd>
               </div>
               <div>
                 <dt>Документы</dt>
-                <dd>Ответ клиенту и заказы PO</dd>
+                <dd>Анализ и заказы поставщикам</dd>
               </div>
             </dl>
           </div>
@@ -119,14 +119,14 @@
             ><span class="shot-meta">Экран приложения</span>
           </div>
           <a
-            href="assets/comparison.webp?v=20261106-33"
+            href="assets/comparison.webp?v=20261109-39"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Открыть скриншот сравнения предложений в полном размере"
             ><img
-              src="assets/comparison.webp?v=20261106-33"
-              width="1066"
-              height="897"
+              src="assets/comparison.webp?v=20261109-39"
+              width="1440"
+              height="1843"
               alt="Широкая таблица предложений: поставщики по колонкам, позиции по строкам, медиана, MIN и MAX, выбор цены для Анализа."
               fetchpriority="high"
           /></a>
@@ -135,7 +135,7 @@
             предложение для позиции. Нажмите на снимок, чтобы рассмотреть таблицу.
           </figcaption>
         </figure>
-        <p class="release-note">На странице — актуальный интерфейс и возможности рабочего сервиса. Обновление открытого экземпляра устанавливается отдельно.</p>
+        <p class="release-note">Снимки выпуска 39. Открытый экземпляр обновляется отдельным пакетом; до его установки интерфейс по ссылке может отличаться.</p>
       </section>
       <section class="context wrap section" aria-labelledby="context-title">
         <div class="section-label"><span>Задача</span></div>
@@ -201,9 +201,9 @@
               <span class="step-number">01</span>
               <h3>Заявка от продаж</h3>
               <p>
-                Продажи загружают Excel и выбирают тип: запрос, тендер или заказ.
+                Продажи загружают Excel или заполняют таблицу в браузере и выбирают тип: запрос, тендер или заказ.
                 У запроса можно уточнить КП или НМЦ. В карточке — клиент,
-                закупщик и срок ответа.
+                закупщик, дата и время первого ответа по Москве.
               </p>
               <span class="step-owner">ОП · Продажи</span>
             </li>
@@ -231,7 +231,7 @@
               <span class="step-number">04</span>
               <h3>Продажа частями</h3>
               <p>
-                Продажа подтверждается по конкретному предложению из согласованного Анализа. Цена и условия сохраняются; можно продать часть количества и вернуться к остатку.
+                Продажа подтверждается по конкретному предложению из согласованного Анализа. Цена перед продажей должна быть подтверждена поставщиком и действовать на момент продажи. Можно продать часть количества и вернуться к остатку.
               </p>
               <span class="step-owner">ОП · Продажи</span>
             </li>
@@ -252,6 +252,7 @@
           </p>
         </div>
       </section>
+      <section id="branches" class="wrap section" aria-labelledby="branches-title"><div class="section-label"><span>Долгие заявки</span></div><div class="section-content"><h2 id="branches-title">Одна основная заявка, несколько поставок</h2><p class="section-intro">Большой запрос может обрабатываться месяцами. Для отдельных позиций создаются дочерние заявки со своим Анализом и согласованием. Связи и выделенные количества остаются видимыми; статистика основной заявки учитывает дочерние.</p><div class="prose-columns"><p>Дочерняя заявка начинается с собственного статуса. Количество резервируется из родительской, а подтверждённая продажа списывается из её остатка. Вложенность может продолжаться дальше.</p><p>Сотрудник видит сроки первого ответа с точностью до времени. Завершённую работу можно отправить в архив; архив включается в отчёты, корзина — нет.</p></div></div></section>
       <section id="analysis" class="wrap section" aria-labelledby="analysis-title">
         <div class="section-label"><span>Цена и согласование</span></div>
         <div class="section-content">
@@ -273,7 +274,7 @@
             <article><h3>Выбор остаётся у закупщика</h3><p>Поиск не меняет Анализ. Сотрудник сначала проверяет результаты и добавляет предложения в расчёт. Дальше действуют общие правила выбора цены и согласования.</p></article>
           </div>
           <figure class="product-shot report-shot"><div class="shot-bar"><span class="shot-dot" aria-hidden="true"></span><span>ChainChip / Поиск предложений</span></div>
-            <a href="assets/search.webp?v=20261106-33" target="_blank" rel="noopener noreferrer" aria-label="Открыть экран поиска предложений"><img src="assets/search.webp?v=20261106-33" width="1120" height="946" loading="lazy" alt="Результаты поиска: поставщик, цена, остаток, MOQ, срок, дата получения и кнопка добавления в расчёт." /></a>
+            <a href="assets/search.webp?v=20261109-39" target="_blank" rel="noopener noreferrer" aria-label="Открыть экран поиска предложений"><img src="assets/search.webp?v=20261109-39" width="1408" height="1010" loading="lazy" alt="Результаты поиска: поставщик, цена, остаток, MOQ, срок, дата получения и кнопка добавления в расчёт." /></a>
             <figcaption>В рабочем сервисе поиск подключается к API дистрибьюторов. Ошибки источников и пропущенные позиции показываются отдельно.</figcaption>
           </figure>
         </div>
@@ -304,9 +305,9 @@
           </div>
           <figure class="product-shot report-shot">
             <div class="shot-bar"><span class="shot-dot" aria-hidden="true"></span><span>ChainChip / Отчёт о работе</span></div>
-            <a href="assets/reports.webp?v=20261106-33" target="_blank" rel="noopener noreferrer"
-              aria-label="Открыть скриншот отчёта о работе в полном размере"><img src="assets/reports.webp?v=20261106-33"
-              width="1200" height="846" loading="lazy" alt="Результат отчёта по отделам: выбранные показатели в таблице, период и кнопка скачивания Excel." /></a>
+            <a href="assets/reports.webp?v=20261109-39" target="_blank" rel="noopener noreferrer"
+              aria-label="Открыть скриншот отчёта о работе в полном размере"><img src="assets/reports.webp?v=20261109-39"
+              width="1440" height="1181" loading="lazy" alt="Результат отчёта по отделам: выбранные показатели в таблице, период и кнопка скачивания Excel." /></a>
             <figcaption>Показатели выбираются перед построением отчёта. Тот же набор данных можно скачать в Excel.</figcaption>
           </figure>
         </div>
@@ -454,7 +455,7 @@
         <div class="wrap">
           <div class="section-label"><span>Интерфейс</span></div>
           <div class="section-heading">
-            <h2 id="screens-title">Карточка запроса</h2>
+            <h2 id="screens-title">Карточка заявки</h2>
             <p>
               Тип заявки выбирается до передачи в закупки. В карточке также
               остаются клиент, ответственный, срок и комментарий — вместе
@@ -464,18 +465,18 @@
           <figure class="product-shot secondary-shot">
             <div class="shot-bar">
               <span class="shot-dot" aria-hidden="true"></span
-              ><span>ChainChip / Карточка запроса</span>
+              ><span>ChainChip / Карточка заявки</span>
             </div>
             <a
-              href="assets/request.webp?v=20261106-33"
+              href="assets/request.webp?v=20261109-39"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Открыть скриншот карточки запроса в полном размере"
               ><img
-                src="assets/request.webp?v=20261106-33"
+                src="assets/request.webp?v=20261109-39"
                 alt="Карточка тендера с выбором типа заявки, клиентом, закупщиком, сроком и комментарием."
                 width="1440"
-                height="1050"
+                height="1384"
                 loading="lazy"
             /></a>
             <figcaption>
@@ -485,6 +486,7 @@
           </figure>
         </div>
       </section>
+      <section id="workspace" class="wrap section" aria-labelledby="workspace-title"><div class="section-label"><span>Рабочий кабинет</span></div><div class="section-content"><h2 id="workspace-title">Список, детали и действия на своих местах</h2><p class="section-intro">Общие разделы находятся слева, документы и операции заявки — во вкладках. Поиск и данные видны сразу; дополнительные фильтры и настройки раскрываются по кнопке. Выбор темы открывается по иконке и учитывает настройку системы.</p><figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / Заявки · тёмная тема</span></div><a href="assets/workspace.webp?v=20261109-39" target="_blank" rel="noopener noreferrer" aria-label="Открыть список заявок в тёмной теме"><img src="assets/workspace.webp?v=20261109-39" width="1440" height="1050" loading="lazy" alt="Список заявок: постоянные разделы слева, поиск, фильтры, типы, этапы и срок ответа."/></a><figcaption>Светлая и тёмная темы используют одну структуру. Фоновые обновления не пересоздают неизменившиеся строки.</figcaption></figure></div></section>
       <section
         class="boundaries wrap section"
         aria-labelledby="boundaries-title"
@@ -524,7 +526,7 @@
       <section class="closing wrap" aria-labelledby="closing-title">
         <div>
           <span class="eyebrow">Попробовать рабочий процесс</span>
-          <h2 id="closing-title">Откройте готовый запрос</h2>
+          <h2 id="closing-title">Откройте готовую заявку</h2>
           <p>
             Выберите роль закупщика и откройте заявку с предложениями.<br />Затем
             можно переключиться на продажи и пройти согласование.
@@ -540,7 +542,7 @@
       </section>
     </main>
     <footer class="footer wrap">
-      <a class="brand" href="#">ChainChip<span class="brand-dot">.</span></a>
+      <a class="brand" href="#"><svg class="brand-mark" viewBox="0 0 36 32" aria-hidden="true"><path d="M20 5H12a9 9 0 0 0 0 18h5"/><path d="M16 9h8a9 9 0 0 1 0 18h-5" class="brand-contact"/></svg>ChainChip</a>
       <p>Продажи и закупки электронных компонентов</p>
       <a
         href="https://github.com/B0ttokyanpa"

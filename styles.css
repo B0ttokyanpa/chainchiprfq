@@ -5,13 +5,13 @@
   font-display: swap;
 }
 :root {
-  --paper: #f6f5f1;
+  --paper: #f5f6f8;
   --white: #fff;
-  --ink: #222825;
-  --muted: #626b65;
-  --line: #d8dcd5;
-  --accent: #ef6038;
-  --green: #2f493e;
+  --ink: #232a34;
+  --muted: #626c7b;
+  --line: #dfe3e9;
+  --accent: #9c461a;
+  --green: #1c2128;
   --max: 1180px;
 }
 * {
@@ -95,17 +95,7 @@ p {
   letter-spacing: -1.1px;
   line-height: 1;
 }
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  margin-right: 10px;
-  border-radius: 8px;
-  background: var(--accent);
-  font-size: 27px;
-  font-weight: 500;
-}
+.brand-mark {width:32px;height:29px;margin-right:9px;fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round}.brand-contact{stroke:#ec7a3c}
 .brand-dot {
   color: var(--accent);
 }
@@ -202,7 +192,7 @@ h1 > span {
 }
 .button:hover {
   background: var(--green);
-  transform: translateY(-2px);
+
 }
 .text-link {
   font-size: 13px;
