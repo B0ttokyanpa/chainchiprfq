@@ -32,7 +32,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="styles.css?v=20261109-39" />
+    <link rel="stylesheet" href="styles.css?v=20261111-49" />
   </head>
   <body>
     <a class="skip" href="#main">К содержанию</a>
@@ -87,7 +87,7 @@
             </div>
             <p class="access-note">
               Для просмотра выберите роль. Пароль не нужен. Данные вымышленные;
-              общая среда периодически очищается. Поиск здесь использует подготовленные результаты без обращений к поставщикам.
+              общая среда периодически очищается. Поиск здесь использует подготовленные результаты без обращений к поставщикам. <a href="#preparation">Начать с новых сценариев →</a>
             </p>
           </div>
           <div class="hero-aside" aria-label="Кратко о проекте">
@@ -119,15 +119,15 @@
             ><span class="shot-meta">Экран приложения</span>
           </div>
           <a
-            href="assets/comparison.webp?v=20261109-39"
+            href="assets/comparison.webp?v=20261111-49"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Открыть скриншот сравнения предложений в полном размере"
             ><img
-              src="assets/comparison.webp?v=20261109-39"
+              src="assets/comparison.webp?v=20261111-49"
               width="1440"
-              height="1843"
-              alt="Широкая таблица предложений: поставщики по колонкам, позиции по строкам, медиана, MIN и MAX, выбор цены для Анализа."
+              height="1000"
+              alt="Широкая таблица предложений: поставщики по колонкам, позиции по строкам, медиана и сумма по количеству, MIN и MAX, выбор цены для Анализа."
               fetchpriority="high"
           /></a>
           <figcaption>
@@ -135,7 +135,7 @@
             предложение для позиции. Нажмите на снимок, чтобы рассмотреть таблицу.
           </figcaption>
         </figure>
-        <p class="release-note">Снимки выпуска 39. Открытый экземпляр обновляется отдельным пакетом; до его установки интерфейс по ссылке может отличаться.</p>
+        <p class="release-note">Снимки актуальной сборки. Открытый экземпляр обновляется отдельно; до установки нового пакета интерфейс по ссылке может отличаться.</p>
       </section>
       <section class="context wrap section" aria-labelledby="context-title">
         <div class="section-label"><span>Задача</span></div>
@@ -252,15 +252,26 @@
           </p>
         </div>
       </section>
+      <section id="preparation" class="wrap section" aria-labelledby="preparation-title">
+        <div class="section-label"><span>Входящий Excel</span></div>
+        <div class="section-content">
+          <h2 id="preparation-title">Разобрать наименование до отправки запроса</h2>
+          <p class="section-intro">Тип компонента, партномер и производитель часто записаны в одной ячейке. Приложение предлагает разделение и отдельно показывает строки, которые нужно проверить.</p>
+          <div class="prose-columns"><p>Количество сохраняется. Если единица не указана, подставляется PCS. Суффиксы и знаки в партномере остаются на месте; описание и требования переносятся в комментарий.</p><p>Менеджер исправляет спорные строки и подтверждает результат перед применением. Исходный файл остаётся в истории. Это разбор текста, а не проверка по каталогу производителя.</p></div>
+          <figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / Подготовка запроса</span></div><a href="assets/preparation.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть результат разбора запроса"><img src="assets/preparation.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Предварительный разбор наименований: исходная строка, тип товара, партномер, производитель и ручная проверка спорных значений." /></a><figcaption>До применения видны исходная строка и предложенные поля. Неоднозначные строки требуют подтверждения. <a href="assets/preparation-mobile.webp?v=20261111-49" target="_blank" rel="noopener noreferrer">Экран телефона ↗</a></figcaption></figure>
+        </div>
+      </section>
       <section id="branches" class="wrap section" aria-labelledby="branches-title"><div class="section-label"><span>Долгие заявки</span></div><div class="section-content"><h2 id="branches-title">Одна основная заявка, несколько поставок</h2><p class="section-intro">Большой запрос может обрабатываться месяцами. Для отдельных позиций создаются дочерние заявки со своим Анализом и согласованием. Связи и выделенные количества остаются видимыми; статистика основной заявки учитывает дочерние.</p><div class="prose-columns"><p>Дочерняя заявка начинается с собственного статуса. Количество резервируется из родительской, а подтверждённая продажа списывается из её остатка. Вложенность может продолжаться дальше.</p><p>Сотрудник видит сроки первого ответа с точностью до времени. Завершённую работу можно отправить в архив; архив включается в отчёты, корзина — нет.</p></div></div></section>
       <section id="analysis" class="wrap section" aria-labelledby="analysis-title">
         <div class="section-label"><span>Цена и согласование</span></div>
         <div class="section-content">
           <h2 id="analysis-title">Согласованная цена остаётся в своём выпуске</h2>
           <div class="team-notes">
-            <article><h3>От сравнения к Анализу</h3><p>В Final Price по умолчанию стоит медиана. Закупщик выбирает предложение — в расчёт попадают его цена, поставщик, DC и LT. Excel формируется по шаблону клиента; название клиента есть в имени файла.</p></article>
+            <article><h3>От сравнения к Анализу</h3><p>Закупщик выбирает предложение; без выбора используется медиана. Цена поставщика и итоговая цена клиента хранятся отдельно. Условие для клиента можно изменить, сохранив закупочную цену.</p></article>
             <article><h3>Новые условия — новое согласование</h3><p>Обновление предложения показывает, какие позиции, цены и условия изменились. Старый Анализ остаётся в истории. Для продажи по новым условиям нужен актуальный согласованный выпуск.</p></article>
           </div>
+          <div class="team-notes"><article><h3>Курс и наценка</h3><p>Общий курс — ЦБ + 3 ₽, с ежедневным обновлением. Менеджер задаёт общий коэффициент или исключения по позициям. ОЗ может предложить изменение, а ОП — согласовать его в новом Анализе.</p></article><article><h3>Правки из Excel</h3><p>Изменённый файл можно загрузить обратно: позиции, поставщики и рабочие поля попадут в предварительный список изменений. После применения создаётся новая версия на согласование; прежняя остаётся в истории.</p></article></div>
+          <figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / Коэффициенты наценки</span></div><a href="assets/markup.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть настройку наценки"><img src="assets/markup.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Общий коэффициент, отдельные значения по позициям, согласованные коэффициенты и причина изменения." /></a><figcaption>Коэффициент позиции заменяет общий. Предложение ОЗ не меняет согласованные значения до решения ОП. <a href="assets/analysis.webp?v=20261111-49" target="_blank" rel="noopener noreferrer">Предпросмотр Анализа ↗</a></figcaption></figure>
           <p>Согласовать Анализ, подтвердить продажу и завершить заявку — отдельные действия. Заявку можно закрыть с оставшимися позициями, указать причину и отправить в архив.</p>
         </div>
       </section>
@@ -274,9 +285,17 @@
             <article><h3>Выбор остаётся у закупщика</h3><p>Поиск не меняет Анализ. Сотрудник сначала проверяет результаты и добавляет предложения в расчёт. Дальше действуют общие правила выбора цены и согласования.</p></article>
           </div>
           <figure class="product-shot report-shot"><div class="shot-bar"><span class="shot-dot" aria-hidden="true"></span><span>ChainChip / Поиск предложений</span></div>
-            <a href="assets/search.webp?v=20261109-39" target="_blank" rel="noopener noreferrer" aria-label="Открыть экран поиска предложений"><img src="assets/search.webp?v=20261109-39" width="1408" height="1010" loading="lazy" alt="Результаты поиска: поставщик, цена, остаток, MOQ, срок, дата получения и кнопка добавления в расчёт." /></a>
+            <a href="assets/search.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть экран поиска предложений"><img src="assets/search.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Результаты поиска: поставщик, цена, остаток, MOQ, срок, дата получения и кнопка добавления в расчёт." /></a>
             <figcaption>В рабочем сервисе поиск подключается к API дистрибьюторов. Ошибки источников и пропущенные позиции показываются отдельно.</figcaption>
           </figure>
+        </div>
+      </section>
+      <section id="price-history" class="wrap section" aria-labelledby="price-history-title">
+        <div class="section-label"><span>Прежние запросы</span></div>
+        <div class="section-content"><h2 id="price-history-title">Кто уже давал цену на этот партномер</h2>
+          <p class="section-intro">История собирает предложения поставщиков и оформленные закупки по точному партномеру и производителю. Рядом с ценой — дата, поставщик, сотрудник, количество и условия.</p>
+          <div class="prose-columns"><p>Можно посмотреть прежние предложения в другом проекте, проверить DC и срок поставки. Старая цена не становится текущей автоматически — условия нужно подтвердить заново.</p><p>Цены и поставщики доступны отделам. Название проекта и клиент показываются только тем, у кого есть доступ к заявке.</p></div>
+          <figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / История цен</span></div><a href="assets/price-history.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть историю цен позиции"><img src="assets/price-history.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Журнал цен позиции: даты, поставщики, сотрудники, цены, количество, DC, LT и доступные проекты." /></a><figcaption>Прежние цены помогают проверить новое предложение. У каждого значения сохраняются источник и дата.</figcaption></figure>
         </div>
       </section>
       <section id="team" class="team wrap section" aria-labelledby="team-title">
@@ -305,9 +324,9 @@
           </div>
           <figure class="product-shot report-shot">
             <div class="shot-bar"><span class="shot-dot" aria-hidden="true"></span><span>ChainChip / Отчёт о работе</span></div>
-            <a href="assets/reports.webp?v=20261109-39" target="_blank" rel="noopener noreferrer"
-              aria-label="Открыть скриншот отчёта о работе в полном размере"><img src="assets/reports.webp?v=20261109-39"
-              width="1440" height="1181" loading="lazy" alt="Результат отчёта по отделам: выбранные показатели в таблице, период и кнопка скачивания Excel." /></a>
+            <a href="assets/reports.webp?v=20261111-49" target="_blank" rel="noopener noreferrer"
+              aria-label="Открыть скриншот отчёта о работе в полном размере"><img src="assets/reports.webp?v=20261111-49"
+              width="1440" height="1000" loading="lazy" alt="Результат отчёта по отделам: выбранные показатели в таблице, период и кнопка скачивания Excel." /></a>
             <figcaption>Показатели выбираются перед построением отчёта. Тот же набор данных можно скачать в Excel.</figcaption>
           </figure>
         </div>
@@ -468,15 +487,15 @@
               ><span>ChainChip / Карточка заявки</span>
             </div>
             <a
-              href="assets/request.webp?v=20261109-39"
+              href="assets/request.webp?v=20261111-49"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Открыть скриншот карточки запроса в полном размере"
               ><img
-                src="assets/request.webp?v=20261109-39"
+                src="assets/request.webp?v=20261111-49"
                 alt="Карточка тендера с выбором типа заявки, клиентом, закупщиком, сроком и комментарием."
                 width="1440"
-                height="1384"
+                height="1000"
                 loading="lazy"
             /></a>
             <figcaption>
@@ -486,7 +505,7 @@
           </figure>
         </div>
       </section>
-      <section id="workspace" class="wrap section" aria-labelledby="workspace-title"><div class="section-label"><span>Рабочий кабинет</span></div><div class="section-content"><h2 id="workspace-title">Список, детали и действия на своих местах</h2><p class="section-intro">Общие разделы находятся слева, документы и операции заявки — во вкладках. Поиск и данные видны сразу; дополнительные фильтры и настройки раскрываются по кнопке. Выбор темы открывается по иконке и учитывает настройку системы.</p><figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / Заявки · тёмная тема</span></div><a href="assets/workspace.webp?v=20261109-39" target="_blank" rel="noopener noreferrer" aria-label="Открыть список заявок в тёмной теме"><img src="assets/workspace.webp?v=20261109-39" width="1440" height="1050" loading="lazy" alt="Список заявок: постоянные разделы слева, поиск, фильтры, типы, этапы и срок ответа."/></a><figcaption>Светлая и тёмная темы используют одну структуру. Фоновые обновления не пересоздают неизменившиеся строки.</figcaption></figure></div></section>
+      <section id="workspace" class="wrap section" aria-labelledby="workspace-title"><div class="section-label"><span>Рабочий кабинет</span></div><div class="section-content"><h2 id="workspace-title">Список, детали и действия на своих местах</h2><p class="section-intro">Общие разделы находятся слева, документы и операции заявки — во вкладках. Поиск и данные видны сразу; дополнительные фильтры и настройки раскрываются по кнопке. Выбор темы открывается по иконке и учитывает настройку системы.</p><figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / Заявки · тёмная тема</span></div><a href="assets/workspace.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть список заявок в тёмной теме"><img src="assets/workspace.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Список заявок: постоянные разделы слева, поиск, фильтры, типы, этапы и срок ответа."/></a><figcaption>Светлая и тёмная темы используют одну структуру. Фоновые обновления не пересоздают неизменившиеся строки.</figcaption></figure></div></section>
       <section
         class="boundaries wrap section"
         aria-labelledby="boundaries-title"
@@ -501,8 +520,7 @@
           </p>
           <ul class="limits">
             <li>
-              Текущий шаблон Анализа рассчитывается в USD и RUB с фиксированными
-              курсом и коэффициентом. Другие валюты требуют отдельного расчёта.
+              Анализ рассчитывается в USD и RUB. Курс и коэффициенты фиксируются в каждом выпуске. В открытом экземпляре курс учебный; другие валюты требуют отдельного расчёта.
             </li>
             <li>
               Отправка заказа поставщику выполняется сотрудником после
