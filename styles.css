@@ -1409,3 +1409,13 @@ figcaption {
 .team-notes p { color:#38473c; font-size:15px; line-height:1.85; margin:0 0 16px; }
 .report-shot { margin:28px 0 0; }
 @media(max-width:720px) { .team-notes { grid-template-columns:1fr; gap:18px; } }
+
+/* Release 65: the exchange follows the employee's business action. */
+.integration-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:32px 0}
+.integration-cards article{min-width:0;padding:22px;background:#edf1e8;border:1px solid #d5decf;border-radius:10px}
+.integration-cards h3{font-size:20px;line-height:1.35;margin:10px 0 14px;color:var(--ink)}
+.integration-cards p,.integration-note{font-size:15px;line-height:1.8;color:#38473c;overflow-wrap:anywhere}
+.integration-kicker{font-size:12px;font-weight:650;text-transform:uppercase;letter-spacing:.08em;color:#375b32}
+.integration-shot{margin-top:28px}.integration-shot figcaption{font-size:13px;line-height:1.75}
+.integration-note{padding:18px 0;border-top:1px solid #c5cdc3}
+@media(max-width:1050px){.integration-cards{grid-template-columns:1fr;gap:14px}.integration-cards article{padding:18px}}
