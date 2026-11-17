@@ -1,590 +1,148 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="color-scheme" content="light" />
-    <meta
-      name="description"
-      content="ChainChip — веб-приложение для продаж и закупок электронных компонентов: RFQ, Анализ и КП, продажи и PO, автоматические заказы и вложения в МойСкладе, остатки по складам и DC."
-    />
-    <meta
-      property="og:title"
-      content="ChainChip — работа с заявками на электронные компоненты"
-    />
-    <meta
-      property="og:description"
-      content="Рабочий процесс, интерфейс и технические решения проекта на ASP.NET Core. Приложение доступно для просмотра с вымышленными данными."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://b0ttokyanpa.github.io/chainchiprfq/assets/comparison.webp"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://b0ttokyanpa.github.io/chainchiprfq/" />
-    <title>ChainChip — продажи и закупки электронных компонентов</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link
-      rel="preload"
-      href="assets/InterVariable.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="styles.css?v=20261117-65" />
-  </head>
-  <body>
-    <a class="skip" href="#main">К содержанию</a>
-    <header class="header wrap">
-      <a class="brand" href="#" aria-label="ChainChip, начало страницы"
-        ><svg class="brand-mark" viewBox="0 0 36 32" aria-hidden="true"><path d="M20 5H12a9 9 0 0 0 0 18h5"/><path d="M16 9h8a9 9 0 0 1 0 18h-5" class="brand-contact"/></svg>ChainChip<span
-          class="brand-dot"
-          >.</span
-        ></a
-      >
-      <nav aria-label="Основная навигация">
-        <a href="#workflow">Процесс</a><a href="#moysklad">МойСклад</a><a href="#search">Поиск цен</a><a href="#team">Клиенты и отчёты</a><a href="#engineering">Устройство</a
-        ><a href="#decisions">Решения</a>
-        <a
-          class="nav-app"
-          href="https://demo.chainchiprfq.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Открыть приложение <span aria-hidden="true">↗</span></a
-        >
-      </nav>
-    </header>
-    <main id="main">
-      <section class="hero wrap" aria-labelledby="hero-title">
-        <div class="hero-top">
-          <span class="eyebrow">Продажи и закупки электронных компонентов</span
-          ><span class="status"
-            ><i aria-hidden="true"></i> Выпуск 65 · 17.11.2026</span
-          >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>ChainChip — от запроса на компоненты до заказа поставщику</title>
+  <meta name="description" content="ChainChip для дистрибьюторов электронных компонентов: сравнение предложений поставщиков, согласование цен, КП и закупка по подтверждённому заказу клиента. Интеграция с МоимСкладом." />
+  <meta property="og:title" content="ChainChip — от запроса клиента до заказа поставщику" />
+  <meta property="og:description" content="Сравните предложения по каждой позиции. Согласуйте условия. Передайте подтверждённые количества в закупку." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://b0ttokyanpa.github.io/chainchiprfq/assets/comparison.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://b0ttokyanpa.github.io/chainchiprfq/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="assets/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css?v=20261117-business" />
+</head>
+<body>
+  <a class="skip" href="#main">К содержанию</a>
+  <header class="header wrap">
+    <a class="brand" href="#" aria-label="ChainChip, начало страницы"><svg class="brand-mark" viewBox="0 0 36 32" aria-hidden="true"><path d="M20 5H12a9 9 0 0 0 0 18h5"/><path d="M16 9h8a9 9 0 0 1 0 18h-5" class="brand-contact"/></svg>ChainChip</a>
+    <nav aria-label="Основная навигация">
+      <a href="#workflow">Как работает</a><a href="#moysklad">МойСклад</a><a href="#team">Руководителю</a><a href="#engineering">Техническая часть</a>
+      <a class="nav-app" href="https://demo.chainchiprfq.ru/" target="_blank" rel="noopener noreferrer">Посмотреть демо ↗</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <span class="eyebrow">Для компаний, поставляющих электронные компоненты</span>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">От запроса клиента<br />до заказа<br /><span>поставщику</span></h1>
+          <p class="lead">Сравнивайте ответы поставщиков по каждой позиции, согласовывайте цены с продажами и формируйте КП. Передавайте в закупку те количества, которые подтвердил клиент.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://demo.chainchiprfq.ru/" target="_blank" rel="noopener noreferrer">Посмотреть демо <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#workflow">Пройти путь заявки ↓</a>
+          </div>
+          <p class="access-note">Вход по роли, без пароля. Данные учебные. Публичное демо может отличаться от текущего приложения; боевой обмен с МоимСкладом в нём отключён.</p>
         </div>
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <h1 id="hero-title">
-              Заявки клиентов,<br />предложения<br /><span>и закупки</span>
-            </h1>
-            <p class="lead">
-              От Excel клиента до КП, продажи и закупки: заявка, согласованный Анализ и PO связаны с заказами МойСклада. Следующее действие и состояние документов видны рядом с операцией; история условий сохраняется.
-            </p>
-            <div class="hero-actions">
-              <a
-                class="button"
-                href="https://demo.chainchiprfq.ru/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть приложение <span aria-hidden="true">↗</span></a
-              ><a class="text-link" href="#engineering"
-                >Техническая часть <span aria-hidden="true">↓</span></a
-              >
-            </div>
-            <p class="access-note">
-              Для просмотра выберите роль. Пароль не нужен. Данные вымышленные;
-              общая среда периодически очищается. Открытая демонстрация обновляется отдельно от основного приложения. Поиск в ней использует подготовленные результаты; обмен с боевым МойСкладом не включён. <a href="#moysklad">Посмотреть новый рабочий маршрут →</a>
-            </p>
-          </div>
-          <div class="hero-aside" aria-label="Кратко о проекте">
-            <div class="aside-index">В рабочем кабинете</div>
-            <p class="aside-statement">
-              Кому передана заявка?<br />Что согласовано?<br />Что осталось
-              закупить?
-            </p>
-            <dl class="project-facts">
-              <div>
-                <dt>Кто работает</dt>
-                <dd>Продажи, закупки, руководитель</dd>
-              </div>
-              <div>
-                <dt>Входящие данные</dt>
-                <dd>Excel или конструктор таблицы</dd>
-              </div>
-              <div>
-                <dt>Документы</dt>
-                <dd>Анализ, КП, PO и документы МойСклада</dd>
-              </div>
-            </dl>
-          </div>
+        <aside class="hero-aside" aria-label="Когда нужен ChainChip">
+          <div class="aside-index">Знакомая ситуация?</div>
+          <p class="aside-statement">Один запрос клиента.<br />Несколько Excel от поставщиков.<br />Согласована только часть позиций.</p>
+          <p class="aside-answer">ChainChip связывает исходный запрос, предложения, согласованные условия и закупочные партии в одной заявке.</p>
+        </aside>
+      </div>
+      <figure class="product-shot hero-shot">
+        <div class="shot-bar"><span class="shot-dot" aria-hidden="true"></span><span>Сравнение предложений по позициям</span></div>
+        <a href="assets/comparison.webp" target="_blank" rel="noopener noreferrer" aria-label="Рассмотреть таблицу сравнения"><img src="assets/comparison.webp" width="1440" height="1000" alt="Интерфейс ChainChip: позиции клиента по строкам, предложения поставщиков по колонкам, цены и выбор предложения." fetchpriority="high" /></a>
+        <figcaption>Цены и условия поставщиков — в одной таблице. Скриншот демонстрационной сборки.</figcaption>
+      </figure>
+    </section>
+
+    <section class="wrap section" aria-labelledby="comparison-title">
+      <div class="section-label">Предложения поставщиков</div>
+      <div class="section-content">
+        <h2 id="comparison-title">Выбирайте предложение по условиям, а не только по цене</h2>
+        <p class="section-intro">Загрузите ответы поставщиков и сравните цену, количество, срок поставки и DC — код даты производства. Для каждой позиции можно выбрать своё предложение и явно отметить аналог.</p>
+        <dl class="business-questions">
+          <div><dt>Что ответил поставщик?</dt><dd>Исходные файлы сохраняются: к ним можно вернуться и скачать оригинал.</dd></div>
+          <div id="price-history"><dt id="search">Какую цену давали раньше?</dt><dd>История по партномеру и производителю показывает прежние предложения с датой и поставщиком.</dd></div>
+          <div><dt>А если ответа нет?</dt><dd>Позицию можно отметить как проблемную, указать причину и передать руководителю закупок.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="workflow" class="workflow section-band" aria-labelledby="workflow-title">
+      <div class="wrap">
+        <div class="section-label">Продажи и закупки</div>
+        <div class="section-heading"><h2 id="workflow-title">Одна заявка — от Excel до PO</h2><p>Каждый этап связан с предыдущим: видно, что запросили, что согласовали и сколько осталось закупить.</p></div>
+        <ol class="steps">
+          <li><span class="step-number">01</span><h3>Запрос клиента</h3><p>Менеджер загружает Excel, проверяет позиции и назначает закупщика. Исходный файл сохраняется.</p><span class="step-owner">Менеджер продаж</span></li>
+          <li><span class="step-number">02</span><h3>Сравнение</h3><p>Закупщик собирает ответы и выбирает предложения по позициям.</p><span class="step-owner">Менеджер закупок</span></li>
+          <li><span class="step-number">03</span><h3>Согласование и КП</h3><p>Продажи согласуют Анализ — расчёт предложения клиенту. Из него формируется КП.</p><span class="step-owner">Закупки → продажи</span></li>
+          <li><span class="step-number">04</span><h3>Заказ клиента</h3><p>После проверки актуальности закупочной цены менеджер фиксирует подтверждённые позиции и количества. Можно частями.</p><span class="step-owner">Менеджер продаж</span></li>
+          <li><span class="step-number">05</span><h3>Закупка</h3><p>Закупщик распределяет количества по партиям и формирует PO — заказ поставщику.</p><span class="step-owner">Менеджер закупок</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="analysis" class="wrap section" aria-labelledby="analysis-title">
+      <div class="section-label">Согласованные условия</div>
+      <div class="section-content">
+        <h2 id="analysis-title">Клиент получает КП по той версии, которую согласовали</h2>
+        <p class="section-intro">Цены, курс и расчёт сохраняются в версии Анализа. Если условия меняются, требуется новое согласование; ранее выпущенные документы сохраняют прежние значения.</p>
+        <div class="benefit-pair" id="commercial">
+          <article><h3>Клиенту — его предложение</h3><p>КП формируется в PDF без внутренних поставщиков и закупочных цен. Запрошенные позиции сохраняются, включая те, по которым предложения пока нет.</p></article>
+          <article><h3>Сотрудникам — привычный Excel</h3><p>Анализ можно выгрузить, отредактировать и загрузить обратно. При подходящей форме исходника система также заполняет ответные колонки Excel клиента.</p></article>
         </div>
-        <figure class="product-shot hero-shot">
-          <div class="shot-bar">
-            <span class="shot-dot" aria-hidden="true"></span
-            ><span>ChainChip / Сравнение предложений</span
-            ><span class="shot-meta">Экран приложения</span>
-          </div>
-          <a
-            href="assets/comparison.webp?v=20261111-49"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Открыть скриншот сравнения предложений в полном размере"
-            ><img
-              src="assets/comparison.webp?v=20261111-49"
-              width="1440"
-              height="1000"
-              alt="Широкая таблица предложений: поставщики по колонкам, позиции по строкам, медиана и сумма по количеству, MIN и MAX, выбор цены для Анализа."
-              fetchpriority="high"
-          /></a>
-          <figcaption>
-            Предложения поставщиков рядом: можно сравнить цены и выбрать
-            предложение для позиции. Нажмите на снимок, чтобы рассмотреть таблицу.
-          </figcaption>
+      </div>
+    </section>
+
+    <section id="moysklad" class="wrap section" aria-labelledby="moysklad-title">
+      <div class="section-label">Интеграция с МоимСкладом</div>
+      <div class="section-content">
+        <h2 id="moysklad-title">Подтвердили заказ — передайте его в учёт</h2>
+        <p class="section-intro">При настроенном и включённом обмене подтверждение продажи запускает создание заказа покупателя. Готовый PO — заказа поставщику и связанного счёта поставщика.</p>
+        <div class="integration-cards">
+          <article><h3>Документы связаны</h3><p>Заказ поставщику связан с заказами покупателей. Сохранённый КП прикрепляется к заказу покупателя, PO — к заказу и счёту поставщика.</p></article>
+          <article><h3>Остатки рядом с запросом</h3><p>В заявке видны остатки и резервы по складам, в том числе по модификациям DC. Можно проверить склад до новой закупки.</p></article>
+          <article><h3>Общий каталог</h3><p>Карточки товаров синхронизируются в обе стороны. Неоднозначные соответствия требуют проверки сотрудником.</p></article>
+        </div>
+        <p class="integration-note">Для обмена настраиваются организация, склады, налоги и соответствия контрагентов. Приёмки, платежи и отгрузки оформляются в МойСкладе. Отправку КП и PO адресатам выполняет сотрудник.</p>
+      </div>
+    </section>
+
+    <section id="team" class="wrap section" aria-labelledby="team-title">
+      <div class="section-label">Руководителю</div>
+      <div class="section-content">
+        <h2 id="team-title">Видно, где заявка остановилась и кто за неё отвечает</h2>
+        <p class="section-intro">В отчётах закупок можно найти просроченные заявки, позиции без предложений и открытые проблемы. Посмотреть нагрузку сотрудников и перейти к конкретной заявке.</p>
+        <div class="benefit-pair">
+          <article><h3>Разобрать сложную позицию</h3><p>Закупщик фиксирует причину проблемы. Руководитель помогает найти решение; обсуждение и результат остаются в истории.</p></article>
+          <article><h3>Продолжить работу с клиентом</h3><p>В карточке клиента доступны подтверждённые заказы, позиции, количества и клиентские цены. При повторном запросе можно вернуться к документам предыдущих заявок.</p></article>
+        </div>
+        <figure class="product-shot report-shot">
+          <div class="shot-bar"><span>Отчёт о работе сотрудников</span></div>
+          <a href="assets/reports.webp" target="_blank" rel="noopener noreferrer" aria-label="Рассмотреть пример отчёта"><img src="assets/reports.webp" width="1440" height="1000" loading="lazy" alt="Пример отчёта ChainChip с выбранными показателями, периодом, группировкой и выгрузкой Excel." /></a>
+          <figcaption>Пример отчёта на учебных данных. Набор показателей и период выбирает сотрудник.</figcaption>
         </figure>
-        <p class="release-note">Презентация возможностей выпуска 65. Новые экраны маршрута и МойСклада сняты на демонстрационных данных выпуска 65; остальные иллюстрации — из демонстрационной сборки 49. Снимки не подтверждают установку выпуска на сервер. Открытая демонстрация может отличаться.</p>
-      </section>
-      <section class="context wrap section" aria-labelledby="context-title">
-        <div class="section-label"><span>Задача</span></div>
-        <div class="section-content">
-          <h2 id="context-title">
-            Что происходит с заявкой после передачи в закупки
-          </h2>
-          <div class="prose-columns">
-            <p>
-              Поставщики присылают разные файлы, отвечают не на все позиции и
-              указывают цены в разных валютах. Клиент может согласовать только
-              часть количества. По одной заявке появляются несколько ответов,
-              продаж и закупочных партий.
-            </p>
-            <p>
-              В карточке заявки сохраняются ответственный закупщик, срок,
-              исходные файлы и дальнейшие операции. Можно открыть позицию,
-              сравнить предложения и увидеть, какие количества уже подтверждены
-              продажами.
-            </p>
-          </div>
-          <dl class="business-questions">
-            <div>
-              <dt>Что предложить клиенту?</dt>
-              <dd>
-                Открыть позицию и сравнить ответы нескольких поставщиков, не
-                теряя исходные файлы.
-              </dd>
-            </div>
-            <div>
-              <dt>Сколько ещё нужно купить?</dt>
-              <dd>
-                Проверить подтверждённые продажи, закупочные партии и оставшиеся
-                количества.
-              </dd>
-            </div>
-            <div>
-              <dt>Кто отвечает за следующий шаг?</dt>
-              <dd>
-                Посмотреть назначение закупщика и состояние заявки, а при
-                необходимости передать работу другому сотруднику.
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-      <section
-        id="workflow"
-        class="workflow section-band"
-        aria-labelledby="workflow-title"
-      >
-        <div class="wrap">
-          <div class="section-label"><span>Рабочий процесс</span></div>
-          <div class="section-heading">
-            <h2 id="workflow-title">Как сотрудники работают с заявкой</h2>
-            <p>
-              В процессе участвуют продажи, закупщик и руководитель закупок. У
-              каждого свой кабинет и доступные действия.
-            </p>
-          </div>
-          <ol class="steps">
-            <li>
-              <span class="step-number">01</span>
-              <h3>Заявка от продаж</h3>
-              <p>
-                Продажи загружают Excel или заполняют таблицу в браузере и выбирают тип: запрос, тендер или заказ.
-                У запроса можно уточнить КП или НМЦ. В карточке — клиент,
-                закупщик, дата и время первого ответа по Москве.
-              </p>
-              <span class="step-owner">ОП · Продажи</span>
-            </li>
-            <li>
-              <span class="step-number">02</span>
-              <h3>Предложения</h3>
-              <p>
-                Закупщик загружает ответы и сравнивает поставщиков в одной
-                таблице. По каждой валюте видны MIN, MAX и медиана;
-                необычные цены выделяются для проверки. Обновлённый файл можно сравнить с предыдущим и увидеть изменения.
-              </p>
-              <span class="step-owner">ОЗ · Закупки</span>
-            </li>
-            <li>
-              <span class="step-number">03</span>
-              <h3>Согласование</h3>
-              <p>
-                В Анализ попадает выбранное предложение, без явного выбора —
-                медиана. Продажи согласуют выпуск или возвращают его
-                на доработку. Уже выпущенный документ сохраняет свой расчёт.
-              </p>
-              <span class="step-owner">ОЗ → ОП</span>
-            </li>
-            <li>
-              <span class="step-number">04</span>
-              <h3>Продажа частями</h3>
-              <p>
-                ОЗ подтверждает цену поставщика и срок её действия. ОП выбирает позиции и количество из согласованного Анализа. Заказ покупателя передаётся в МойСклад автоматически; сохранённый КП прикрепляется по тому же Анализу.
-              </p>
-              <span class="step-owner">ОП · Продажи</span>
-            </li>
-            <li>
-              <span class="step-number">05</span>
-              <h3>Закупка и PO</h3>
-              <p>
-                Подтверждённые количества переходят в закупочные партии. Готовый PO запускает создание заказа поставщику и связанного счёта в МойСкладе. Excel переданной версии PO прикрепляется к обоим документам.
-              </p>
-              <span class="step-owner">ОЗ · Закупки</span>
-            </li>
-            <li><span class="step-number">06</span><h3>Приёмка и исполнение</h3><p>Приёмки, остатки, резервы и движение ведутся в МойСкладе. В заявке видны остатки по складам и DC. Создание заказа, оплата, приёмка и отгрузка остаются отдельными событиями.</p><span class="step-owner">МойСклад · Склад и исполнение</span></li>
-          </ol>
-          <p class="workflow-note">
-            Заявки можно отбирать по типу, а строки таблиц — по позиции,
-            производителю и другим полям. Фильтры меняют просмотр; итоги RFQ
-            и выгружаемый Анализ остаются по всей заявке.
-          </p>
-        </div>
-      </section>
-      <section id="preparation" class="wrap section" aria-labelledby="preparation-title">
-        <div class="section-label"><span>Входящий Excel</span></div>
-        <div class="section-content">
-          <h2 id="preparation-title">Разобрать наименование до отправки запроса</h2>
-          <p class="section-intro">Тип компонента, партномер и производитель часто записаны в одной ячейке. При загрузке клиентского Excel приложение автоматически разделяет поля и показывает строки, которые нужно проверить. Для неизвестной формы ОП подтверждает лист, заголовки и колонки в предпросмотре.</p>
-          <div class="prose-columns"><p>Количество сохраняется. Если единица не указана, подставляется PCS. Суффиксы и знаки в партномере остаются на месте; описание и требования переносятся в комментарий.</p><p>Менеджер исправляет спорные строки перед передачей в закупки. Повторяющиеся партномера остаются отдельными позициями. Исходный файл остаётся в истории. Это разбор текста, а не проверка по каталогу производителя.</p></div>
-          <figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / Подготовка запроса</span></div><a href="assets/preparation.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть результат разбора запроса"><img src="assets/preparation.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Предварительный разбор наименований: исходная строка, тип товара, партномер, производитель и ручная проверка спорных значений." /></a><figcaption>Экран разбора из демонстрационной сборки 49. В основном приложении разбор выполняется при загрузке; неоднозначные строки требуют подтверждения. <a href="assets/preparation-mobile.webp?v=20261111-49" target="_blank" rel="noopener noreferrer">Экран телефона ↗</a></figcaption></figure>
-        </div>
-      </section>
-      <section id="branches" class="wrap section" aria-labelledby="branches-title"><div class="section-label"><span>Долгие заявки</span></div><div class="section-content"><h2 id="branches-title">Одна основная заявка, несколько поставок</h2><p class="section-intro">Большой запрос может обрабатываться месяцами. Для отдельных позиций создаются дочерние заявки со своим Анализом и согласованием. Связи и выделенные количества остаются видимыми; статистика основной заявки учитывает дочерние.</p><div class="prose-columns"><p>Дочерняя заявка начинается с собственного статуса. Количество резервируется из родительской, а подтверждённая продажа списывается из её остатка. Вложенность может продолжаться дальше.</p><p>Сотрудник видит сроки первого ответа с точностью до времени. Завершённую работу можно отправить в архив; архив включается в отчёты, корзина — нет.</p></div></div></section>
-      <section id="analysis" class="wrap section" aria-labelledby="analysis-title">
-        <div class="section-label"><span>Цена и согласование</span></div>
-        <div class="section-content">
-          <h2 id="analysis-title">Согласованная цена остаётся в своём выпуске</h2>
-          <div class="team-notes">
-            <article><h3>От сравнения к Анализу</h3><p>Закупщик выбирает предложение; без выбора используется медиана. Цена поставщика и итоговая цена клиента хранятся отдельно. Условие для клиента можно изменить, сохранив закупочную цену.</p></article>
-            <article><h3>Новые условия — новое согласование</h3><p>Обновление предложения показывает, какие позиции, цены и условия изменились. Старый Анализ остаётся в истории. Для продажи по новым условиям нужен актуальный согласованный выпуск.</p></article>
-          </div>
-          <div class="team-notes"><article><h3>Курс и наценка</h3><p>Общий курс — ЦБ + 3 ₽, с ежедневным обновлением. Менеджер задаёт общий коэффициент или исключения по позициям. ОЗ может предложить изменение, а ОП — согласовать его в новом Анализе.</p></article><article><h3>Правки из Excel</h3><p>Изменённый файл можно загрузить обратно: позиции, поставщики и рабочие поля попадут в предварительный список изменений. После применения создаётся новая версия на согласование; прежняя остаётся в истории.</p></article></div>
-          <figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / Коэффициенты наценки</span></div><a href="assets/markup.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть настройку наценки"><img src="assets/markup.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Общий коэффициент, отдельные значения по позициям, согласованные коэффициенты и причина изменения." /></a><figcaption>Коэффициент позиции заменяет общий. Предложение ОЗ не меняет согласованные значения до решения ОП. <a href="assets/analysis.webp?v=20261111-49" target="_blank" rel="noopener noreferrer">Предпросмотр Анализа ↗</a></figcaption></figure>
-          <p>Согласовать Анализ, подтвердить продажу и завершить заявку — отдельные действия. Заявку можно закрыть с оставшимися позициями, указать причину и отправить в архив.</p>
-        </div>
-      </section>
-      <section id="search" class="wrap section" aria-labelledby="search-title">
-        <div class="section-label"><span>Поиск предложений</span></div>
-        <div class="section-content">
-          <h2 id="search-title">Сначала найти цены, затем добавить их в расчёт</h2>
-          <p class="section-intro">Закупщик запускает поиск для всей заявки или отмеченных позиций. Задание выполняется в фоне: окно можно закрыть и вернуться к результату позже.</p>
-          <div class="team-notes">
-            <article><h3>Условия видны рядом с ценой</h3><p>В результатах — поставщик, время получения, остаток, минимальная партия, кратность заказа и срок. Цена для большей партии не выдаётся за цену запрошенного количества.</p></article>
-            <article><h3>Выбор остаётся у закупщика</h3><p>Поиск не меняет Анализ. Сотрудник сначала проверяет результаты и добавляет предложения в расчёт. Дальше действуют общие правила выбора цены и согласования.</p></article>
-          </div>
-          <figure class="product-shot report-shot"><div class="shot-bar"><span class="shot-dot" aria-hidden="true"></span><span>ChainChip / Поиск предложений</span></div>
-            <a href="assets/search.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть экран поиска предложений"><img src="assets/search.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Результаты поиска: поставщик, цена, остаток, MOQ, срок, дата получения и кнопка добавления в расчёт." /></a>
-            <figcaption>В рабочем сервисе поиск подключается к API дистрибьюторов. Ошибки источников и пропущенные позиции показываются отдельно.</figcaption>
-          </figure>
-        </div>
-      </section>
-      <section id="price-history" class="wrap section" aria-labelledby="price-history-title">
-        <div class="section-label"><span>Прежние запросы</span></div>
-        <div class="section-content"><h2 id="price-history-title">Кто уже давал цену на этот партномер</h2>
-          <p class="section-intro">История собирает предложения поставщиков и оформленные закупки по точному партномеру и производителю. Рядом с ценой — дата, поставщик, сотрудник, количество и условия.</p>
-          <div class="prose-columns"><p>Можно посмотреть прежние предложения в другом проекте, проверить DC и срок поставки. Старая цена не становится текущей автоматически — условия нужно подтвердить заново.</p><p>Цены и поставщики доступны отделам. Название проекта и клиент показываются только тем, у кого есть доступ к заявке.</p></div>
-          <figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / История цен</span></div><a href="assets/price-history.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть историю цен позиции"><img src="assets/price-history.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Журнал цен позиции: даты, поставщики, сотрудники, цены, количество, DC, LT и доступные проекты." /></a><figcaption>Прежние цены помогают проверить новое предложение. У каждого значения сохраняются источник и дата.</figcaption></figure>
-        </div>
-      </section>
-      <section id="commercial" class="wrap section" aria-labelledby="commercial-title"><div class="section-label"><span>Предложение клиенту</span></div><div class="section-content"><h2 id="commercial-title">КП из согласованного Анализа</h2><p class="section-intro">После согласования сотрудник формирует PDF и, если исходная форма подходит, заполненный Excel клиента. Документы используют сохранённые цены и курс: рублёвая цена уже включает НДС, повторного начисления нет.</p><div class="prose-columns"><p>В PDF остаётся только клиентская часть. Закупочные цены и внутренние поставщики не печатаются. Сохраняются все запрошенные позиции, в том числе без предложения. Партномер аналога появляется только при явной отметке ОЗ.</p><p>Клиентский Excel заполняется в копии оригинала без замены запрошенных названий, кодов и количеств. Если форму нельзя заполнить корректно, показана причина, а PDF остаётся доступным. Повторное формирование открывает сохранённые файлы; новые условия требуют нового согласования.</p></div></div></section>
-      <section id="moysklad" class="wrap section" aria-labelledby="moysklad-title">
-        <div class="section-label"><span>ChainChip ↔ МойСклад</span></div>
-        <div class="section-content">
-          <h2 id="moysklad-title">Рабочее действие запускает обмен</h2>
-          <p class="section-intro">Сотрудник подтверждает продажу или готовит PO. Система передаёт документы и показывает результат в том же разделе. Отдельный переход в каталог и ручная синхронизация для обычной операции не нужны.</p>
-          <div class="integration-cards">
-            <article><span class="integration-kicker">Продажи</span><h3>Продажа → заказ покупателя</h3><p>Каждое подтверждение продажи создаёт свой заказ покупателя. К нему прикрепляются PDF КП и доступный клиентский Excel по согласованному Анализу этой продажи. Само формирование КП заказ не создаёт.</p></article>
-            <article><span class="integration-kicker">Закупки</span><h3>PO → заказ и счёт поставщика</h3><p>После готовности PO создаются заказ поставщику и связанный счёт. Они связаны с соответствующими заказами покупателей. К обоим прикладывается Excel переданной версии PO; история файлов сохраняется.</p></article>
-            <article><span class="integration-kicker">Следующий шаг</span><h3>Понятно, кто должен действовать</h3><p>В карточке виден маршрут, в «Продажах» и PO — статусы и ссылки на МС. ОЗ видит очередь подтверждения выбранных цен. Ошибка объясняется у документа; администратор сопоставляет контрагента прямо в заявке.</p></article>
-          </div>
-          <figure class="product-shot integration-shot"><div class="shot-bar"><span>ChainChip / Ход заявки · выпуск 65</span></div><a href="assets/workflow-65.webp?v=20261117-65" target="_blank" rel="noopener noreferrer" aria-label="Открыть маршрут заявки в выпуске 65"><img src="assets/workflow-65.webp?v=20261117-65" width="1440" height="1050" loading="lazy" alt="Карточка демонстрационной заявки: следующее действие и маршрут от подтверждения продажи до счёта поставщика."/></a><figcaption>Статусы обновляются автоматически без перезагрузки форм. ОП видит общий прогресс закупки; внутренние цены и данные поставщиков остаются доступны по правам. Состояния МС на снимке демонстрационные.</figcaption></figure>
-          <figure class="product-shot integration-shot"><div class="shot-bar"><span>ChainChip / PO и документы МойСклада</span></div><a href="assets/moysklad-po-65.webp?v=20261117-65" target="_blank" rel="noopener noreferrer" aria-label="Открыть заказ и счёт в разделе PO"><img src="assets/moysklad-po-65.webp?v=20261117-65" width="1440" height="1050" loading="lazy" alt="Раздел PO с заказом поставщику, связанным счётом, ссылками в МойСклад и результатом прикрепления файлов."/></a><figcaption>Заказ и его вложения проверяются отдельно. Недоступный файл не отменяет созданный заказ и не блокирует счёт. Внутренний Анализ в МС не прикрепляется. <a href="assets/sales-mobile-65.webp?v=20261117-65" target="_blank" rel="noopener noreferrer">Продажи на телефоне ↗</a></figcaption></figure>
-          <div class="integration-cards compact-cards">
-            <article><h3>Общие карточки товаров</h3><p>Товары синхронизируются в обе стороны. Тип, партномер и производитель сохраняются отдельно; тип используется как группа товара. Спорные соответствия требуют проверки.</p></article>
-            <article><h3>Склады и DC в заявке</h3><p>Видны остатки по складам и модификациям DC. Доступность — основной склад за вычетом резерва. Приёмка, HK и зона отгрузки показываются отдельно; просмотр не резервирует товар.</p></article>
-            <article><h3>Сохранённые условия</h3><p>Передаются сохранённые цены и версии документов. КП другого Анализа не подставляется; изменённый файл не проходит проверку. Файлы не создаются заново ради повторной попытки.</p></article>
-          </div>
-          <p class="integration-note">Настройку организации, складов, НДС и связей контрагентов администратор выполняет один раз. Прежние продажи и PO подключаются отдельно. Отправка клиенту и поставщику остаётся действием сотрудника; приёмки, платежи и отгрузки выполняются в МойСкладе.</p>
-          <a class="text-link" href="assets/user-guide-65.md" download="ChainChip-инструкция-65.md">Скачать инструкцию выпуска 65 ↓</a>
-        </div>
-      </section>
-      <section id="team" class="team wrap section" aria-labelledby="team-title">
-        <div class="section-label"><span>Клиенты и отчёты</span></div>
-        <div class="section-content">
-          <h2 id="team-title">История клиента и работа сотрудников</h2>
-          <div class="team-notes">
-            <article>
-              <h3>Что клиент уже покупал</h3>
-              <p>В общей базе видны подтверждённые покупки: позиции, количества,
-                клиентские цены и даты. При повторном обращении можно проверить
-                прошлую поставку и открыть связанные документы.</p>
-              <p>Справочник доступен всем сотрудникам. Заменять отдельные вложения
-                может их автор или администратор; исходные RFQ и выпущенные
-                документы сохраняются для истории.</p>
-            </article>
-            <article>
-              <h3>Что сделано за выбранный период</h3>
-              <p>Сотрудник выбирает показатели, период и группировку, получает
-                отчёт на экране или в Excel. Можно посмотреть созданные запросы,
-                загрузки ответов, согласования, продажи, закупочные операции и PO.</p>
-              <p>Руководитель закупок и администратор могут построить отчёт по сотруднику
-                или отделу. Переназначение запроса не переносит уже выполненную
-                работу в отчёт другого закупщика.</p>
-            </article>
-          </div>
-          <figure class="product-shot report-shot">
-            <div class="shot-bar"><span class="shot-dot" aria-hidden="true"></span><span>ChainChip / Отчёт о работе</span></div>
-            <a href="assets/reports.webp?v=20261111-49" target="_blank" rel="noopener noreferrer"
-              aria-label="Открыть скриншот отчёта о работе в полном размере"><img src="assets/reports.webp?v=20261111-49"
-              width="1440" height="1000" loading="lazy" alt="Результат отчёта по отделам: выбранные показатели в таблице, период и кнопка скачивания Excel." /></a>
-            <figcaption>Показатели выбираются перед построением отчёта. Тот же набор данных можно скачать в Excel.</figcaption>
-          </figure>
-        </div>
-      </section>
-      <section
-        id="engineering"
-        class="engineering wrap section"
-        aria-labelledby="engineering-title"
-      >
-        <div class="section-label"><span>Устройство</span></div>
-        <div class="section-content">
-          <h2 id="engineering-title">Как устроено приложение</h2>
-          <p class="section-intro">
-            Сервер написан на C# / ASP.NET Core. В браузере — HTML, CSS и
-            JavaScript. SQL Server хранит данные заявок и операций; исходные и
-            сформированные файлы лежат в отдельном хранилище. Поиск цен выполняется отдельным Python-модулем; API-ключи остаются на сервере.
-          </p>
-          <div class="architecture" aria-label="Архитектура приложения">
-            <div class="arch-node">
-              <span class="arch-kind">Клиент</span><strong>Браузер</strong
-              ><span>HTML · CSS · JavaScript</span>
-            </div>
-            <span class="arch-arrow" aria-hidden="true">→</span>
-            <div class="arch-node">
-              <span class="arch-kind">HTTPS</span><strong>Nginx</strong
-              ><span>TLS · Reverse proxy</span>
-            </div>
-            <span class="arch-arrow" aria-hidden="true">→</span>
-            <div class="arch-node">
-              <span class="arch-kind">Приложение</span
-              ><strong>ASP.NET Core</strong
-              ><span>API · Фоновые обработчики</span>
-            </div>
-            <span class="arch-arrow" aria-hidden="true">→</span>
-            <div class="arch-node">
-              <span class="arch-kind">Хранение</span
-              ><strong>SQL Server + файлы</strong
-              ><span>EF Core · Excel-документы</span>
-            </div>
-          </div>
+      </div>
+    </section>
+
+    <section id="engineering" class="wrap section" aria-labelledby="engineering-title">
+      <div class="section-label">Техническому руководителю</div>
+      <div class="section-content">
+        <h2 id="engineering-title">Веб-приложение на ASP.NET Core</h2>
+        <p class="section-intro">Сотрудники работают в браузере. Сервер — C# / .NET 10, данные — SQL Server. Интерфейс написан на JavaScript, HTML и CSS.</p>
+        <details class="technical-details" id="decisions">
+          <summary>Архитектура и условия внедрения</summary>
           <dl class="stack-list">
-            <div>
-              <dt>Обработка Excel</dt>
-              <dd>
-                ClosedXML: чтение входящих файлов, генерация ответов и заказов.
-              </dd>
-            </div>
-            <div>
-              <dt>Проверки</dt>
-              <dd>
-                xUnit, интеграционные тесты на SQL Server и браузерные сценарии
-                Playwright.
-              </dd>
-            </div>
-            <div>
-              <dt>Развёртывание</dt>
-              <dd>
-                Ubuntu VPS, systemd для приложения, Docker для SQL Server, HTTPS
-                через Nginx.
-              </dd>
-            </div>
-            <div>
-              <dt>Публичный просмотр</dt>
-              <dd>
-                Отдельный процесс и SQLite, ограничения ресурсов и периодический
-                сброс состояния.
-              </dd>
-            </div>
+            <div><dt>Развёртывание</dt><dd>Ubuntu, Nginx, приложение через systemd. SQL Server работает в Docker. Для демонстрации используется SQLite.</dd></div>
+            <div><dt>Доступ и история</dt><dd>Права по ролям и назначению на заявку проверяются на сервере. Анализ, КП и PO сохраняются по версиям.</dd></div>
+            <div><dt>Файлы</dt><dd>ClosedXML для Excel, PDFsharp для PDF. При резервировании нужно сохранять и базу данных, и файлы документов.</dd></div>
+            <div><dt>Перед запуском</dt><dd>Проверяются клиентские формы Excel, роли сотрудников, настройка МойСклада, резервное копирование и нагрузка на выбранном сервере.</dd></div>
           </dl>
-        </div>
-      </section>
-      <section
-        id="decisions"
-        class="decisions wrap section"
-        aria-labelledby="decisions-title"
-      >
-        <div class="section-label"><span>Технические решения</span></div>
-        <div class="section-content">
-          <h2 id="decisions-title">Проверки при сохранении данных</h2>
-          <div class="decision-list">
-            <article>
-              <div>
-                <h3>Повторные запросы</h3>
-                <p>
-                  У подтверждения продажи и других операций есть идентификатор
-                  команды. Повтор запроса после потери ответа не должен
-                  создавать вторую запись.
-                </p>
-              </div>
-              <span class="decision-tag">Идемпотентность</span>
-            </article>
-            <article>
-              <div>
-                <h3>Одновременная работа</h3>
-                <p>
-                  При изменении данных проверяется версия записи. Конфликт
-                  возвращается сотруднику вместо молчаливой перезаписи чужого
-                  результата.
-                </p>
-              </div>
-              <span class="decision-tag">Конкурентный доступ</span>
-            </article>
-            <article>
-              <div>
-                <h3>Цены и дробные количества</h3>
-                <p>
-                  На сервере для финансовых значений и дробных количеств
-                  используется decimal. Продажи и закупочные остатки проверяются
-                  перед сохранением.
-                </p>
-              </div>
-              <span class="decision-tag">Точность</span>
-            </article>
-            <article>
-              <div>
-                <h3>Права на заявки и документы</h3>
-                <p>
-                  API проверяет сотрудника, роль, владельца заявки и назначение
-                  закупщика. Общий справочник клиентов доступен всем сотрудникам;
-                  право менять вложения проверяется отдельно. Файлы выдаются
-                  через API с проверкой доступа.
-                </p>
-              </div>
-              <span class="decision-tag">Авторизация</span>
-            </article>
-            <article>
-              <div><h3>Выбор цены и снимок выпуска</h3>
-                <p>MIN, MAX и медиана считаются отдельно по валютам.
-                  При трёх действующих предложениях цена ниже половины или выше
-                  двойной медианы выделяется, но остаётся доступной для выбора.
-                  Новый выпуск сохраняет выбранные цены и параметры расчёта.</p></div>
-              <span class="decision-tag">Расчёт и история</span>
-            </article>
-            <article>
-              <div><h3>Авторство в отчётах</h3>
-                <p>Отчёт учитывает сотрудника и дату действия, а не текущего
-                  ответственного за запрос. Старые загрузки без записанного автора
-                  не приписываются новому владельцу.</p></div>
-              <span class="decision-tag">Учёт действий</span>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section class="screens section-band" aria-labelledby="screens-title">
-        <div class="wrap">
-          <div class="section-label"><span>Интерфейс</span></div>
-          <div class="section-heading">
-            <h2 id="screens-title">Карточка заявки</h2>
-            <p>
-              Тип заявки выбирается до передачи в закупки. В карточке также
-              остаются клиент, ответственный, срок и комментарий — вместе
-              с переходами к позициям и следующим этапам.
-            </p>
-          </div>
-          <figure class="product-shot secondary-shot">
-            <div class="shot-bar">
-              <span class="shot-dot" aria-hidden="true"></span
-              ><span>ChainChip / Карточка заявки</span>
-            </div>
-            <a
-              href="assets/request.webp?v=20261111-49"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Открыть скриншот карточки запроса в полном размере"
-              ><img
-                src="assets/request.webp?v=20261111-49"
-                alt="Карточка тендера с выбором типа заявки, клиентом, закупщиком, сроком и комментарием."
-                width="1440"
-                height="1000"
-                loading="lazy"
-            /></a>
-            <figcaption>
-              Основной тип обязателен: запрос, тендер или заказ.
-              КП и НМЦ — необязательные уточнения для запроса.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-      <section id="workspace" class="wrap section" aria-labelledby="workspace-title"><div class="section-label"><span>Рабочий кабинет</span></div><div class="section-content"><h2 id="workspace-title">Список, детали и действия на своих местах</h2><p class="section-intro">Общие разделы находятся слева, документы и операции заявки — во вкладках. Поиск и данные видны сразу; дополнительные фильтры и настройки раскрываются по кнопке. Выбор темы открывается по иконке и учитывает настройку системы.</p><figure class="product-shot secondary-shot"><div class="shot-bar"><span>ChainChip / Заявки · тёмная тема</span></div><a href="assets/workspace.webp?v=20261111-49" target="_blank" rel="noopener noreferrer" aria-label="Открыть список заявок в тёмной теме"><img src="assets/workspace.webp?v=20261111-49" width="1440" height="1000" loading="lazy" alt="Список заявок: постоянные разделы слева, поиск, фильтры, типы, этапы и срок ответа."/></a><figcaption>Светлая и тёмная темы используют одну структуру. Фоновые обновления не пересоздают неизменившиеся строки.</figcaption></figure></div></section>
-      <section
-        class="boundaries wrap section"
-        aria-labelledby="boundaries-title"
-      >
-        <div class="section-label"><span>Текущее состояние</span></div>
-        <div class="section-content">
-          <h2 id="boundaries-title">Что важно перед внедрением</h2>
-          <p class="section-intro">
-            Основное приложение и открытая демонстрация обновляются отдельно. Интеграция с МойСкладом работает после настройки доступа, организации, складов, НДС и контрагентов. Перед запуском проверяют права, документы и основные сценарии компании.
-          </p>
-          <ul class="limits">
-            <li>
-              Анализ рассчитывается в USD и RUB. Курс и коэффициенты фиксируются в каждом выпуске. В открытом экземпляре курс учебный; другие валюты требуют отдельного расчёта.
-            </li>
-            <li>
-              Отправка заказа поставщику выполняется сотрудником после
-              скачивания файла.
-            </li>
-            <li>
-              Платежи, приёмки и отгрузки оформляются сотрудниками в МойСкладе. ChainChip показывает состояние связанных документов; передача заказа не означает оплату или получение товара.
-            </li>
-            <li>Интеграция с 1С не используется. Автоматизация согласования PO в Битриксе и обновления без простоя остаются планами.</li>
-            <li>
-              Нагрузка проверяется на целевом сервере: большие Excel и
-              параллельные импорты требуют памяти.
-            </li>
-            <li>
-              Резервные копии базы и документов создаются вместе. Полное
-              восстановление нужно проверять отдельно.
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="closing wrap" aria-labelledby="closing-title">
-        <div>
-          <span class="eyebrow">Попробовать рабочий процесс</span>
-          <h2 id="closing-title">Откройте готовую заявку</h2>
-          <p>
-            Выберите роль закупщика и откройте заявку с предложениями.<br />Затем
-            можно переключиться на продажи и пройти согласование.
-          </p>
-        </div>
-        <a
-          class="button button-light"
-          href="https://demo.chainchiprfq.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Открыть приложение <span aria-hidden="true">↗</span></a
-        >
-      </section>
-    </main>
-    <footer class="footer wrap">
-      <a class="brand" href="#"><svg class="brand-mark" viewBox="0 0 36 32" aria-hidden="true"><path d="M20 5H12a9 9 0 0 0 0 18h5"/><path d="M16 9h8a9 9 0 0 1 0 18h-5" class="brand-contact"/></svg>ChainChip</a>
-      <p>Продажи и закупки электронных компонентов · выпуск 65</p>
-      <a
-        href="https://github.com/B0ttokyanpa"
-        target="_blank"
-        rel="noopener noreferrer"
-        >B0ttokyanpa / GitHub <span aria-hidden="true">↗</span></a
-      >
-    </footer>
-  </body>
+        </details>
+      </div>
+    </section>
+
+    <section class="closing wrap" aria-labelledby="closing-title">
+      <div><span class="eyebrow">Оцените на примере заявки</span><h2 id="closing-title">Посмотрите, как связаны<br />продажи и закупки</h2><p>В демо выберите роль закупщика и откройте заявку с предложениями.<br />Сравните ответы, затем переключитесь на роль менеджера продаж.</p></div>
+      <a class="button button-light" href="https://demo.chainchiprfq.ru/" target="_blank" rel="noopener noreferrer">Посмотреть демо ↗</a>
+    </section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#">ChainChip</a><p>Система работы с заявками на электронные компоненты</p><a href="https://github.com/B0ttokyanpa" target="_blank" rel="noopener noreferrer">Автор проекта ↗</a></footer>
+</body>
 </html>
